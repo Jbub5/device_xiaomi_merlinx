@@ -295,10 +295,8 @@ vendor/lib64/libverno.so
 
 # Rootdir
 vendor/bin/displayf_bin
-vendor/bin/factory
 vendor/bin/factory_bin
 vendor/bin/initprop_bin
-vendor/bin/meta_tst
 vendor/bin/mnld
 
 # Misc
