@@ -11,7 +11,8 @@ $(call inherit-product, device/xiaomi/mt6768-common/mt6768.mk)
 
 PRODUCT_PACKAGES += \
     FrameworksResOverlayMerlinx \
-    SystemUIOverlayMerlinx
+    SystemUIOverlayMerlinx \
+    WifiResOverlayMerlinx
 
 # AAPT
 PRODUCT_AAPT_CONFIG := normal
