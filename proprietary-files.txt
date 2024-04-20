@@ -248,10 +248,6 @@ vendor/lib64/libacdk.so
 vendor/lib64/libpq_cust.so
 
 # GPS
-vendor/bin/charon
-vendor/bin/starter
-vendor/bin/stroke
-vendor/lib64/libcharon-ss.so
 vendor/lib64/libhydra.so
 vendor/lib64/libsimaka.so
 vendor/lib64/libstrongswan.so
@@ -294,9 +290,6 @@ vendor/lib/libverno.so
 vendor/lib64/libverno.so
 
 # Rootdir
-vendor/bin/displayf_bin
-vendor/bin/factory_bin
-vendor/bin/initprop_bin
 vendor/bin/mnld
 
 # Misc
