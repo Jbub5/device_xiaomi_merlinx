@@ -12,9 +12,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/xiaomi/merlinx/device.mk)
 
 # Inherit some common LineageOS stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+$(call inherit-product, vendor/voltage/config/common_full_phone.mk)
 
-PRODUCT_NAME := lineage_merlinx
+PRODUCT_NAME := voltage_merlinx
 PRODUCT_DEVICE := merlinx
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_BRAND := Redmi
@@ -26,3 +26,18 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     DeviceName=merlin \
     BuildDesc="merlin-user 11 RP1A.200720.011 V12.5.4.0.RJOMIXM release-keys" \
     BuildFingerprint=Redmi/merlin/merlin:11/RP1A.200720.011/V12.5.4.0.RJOMIXM:user/release-keys
+
+# VoltageOS Stuffs
+VOLTAGE_BUILD_TYPE := UNOFFICIAL
+
+TARGET_BOOT_ANIMATION_RES := 1920
+
+TARGET_FACE_UNLOCK_SUPPORTED := true
+
+PRODUCT_NO_CAMERA := true
+
+PRODUCT_PACKAGES += \
+    Camera
+
+# include private signing keys
+-include vendor/voltage-priv/keys/keys.mk
