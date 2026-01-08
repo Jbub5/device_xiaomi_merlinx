@@ -9,10 +9,18 @@ DEVICE_PATH := device/xiaomi/merlinx
 # Inherit from mt6768-common
 $(call inherit-product, device/xiaomi/mt6768-common/mt6768.mk)
 
+# Overlays
+DEVICE_PACKAGE_OVERLAYS += \
+    $(DEVICE_PATH)/overlay-lineage
+
 PRODUCT_PACKAGES += \
     FrameworksResOverlayMerlinx \
     SystemUIOverlayMerlinx \
     WifiResOverlayMerlinx
+
+# Init
+PRODUCT_PACKAGES += \
+    init.project.rc
 
 # AAPT
 PRODUCT_AAPT_CONFIG := normal
@@ -46,13 +54,9 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.nfc.uicc.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_merlinnfc/android.hardware.nfc.uicc.xml \
     frameworks/native/data/etc/com.android.nfc_extras.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_merlinnfc/com.android.nfc_extras.xml
 
-# Overlays
-DEVICE_PACKAGE_OVERLAYS += \
-    $(DEVICE_PATH)/overlay-lineage
-
-# Init
-PRODUCT_PACKAGES += \
-    init.project.rc
+# SKU-specific properties
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/configs/sku_props/build_ss_vendor.prop:$(TARGET_COPY_OUT_VENDOR)/build_ss_vendor.prop
 
 # Secure Element
 PRODUCT_PACKAGES += \
@@ -66,10 +70,6 @@ PRODUCT_SOONG_NAMESPACES += \
 
 # Shipping API Level
 PRODUCT_SHIPPING_API_LEVEL := 29
-
-# SKU
-PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/build_ss_vendor.prop:$(TARGET_COPY_OUT_VENDOR)/build_ss_vendor.prop
 
 # Inherit the proprietary files
 $(call inherit-product, vendor/xiaomi/merlinx/merlinx-vendor.mk)
